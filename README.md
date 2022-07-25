@@ -4,7 +4,7 @@
 添加了几个项目用于基本测试。
 
 ## 基础blink测试
-'''
+```
 #include <Arduino.h>
 
 int led = 25;
@@ -20,9 +20,9 @@ void loop() {
   digitalWrite(led,LOW);
   delay(500);
 }
-'''
+```
 ## 增加toggle操作
-'''
+```
 #include <Arduino.h>
 
 int led = 25;
@@ -41,4 +41,4 @@ void loop() {
   digitalToggle(led);
   delay(500);
 }
-'''
+```
