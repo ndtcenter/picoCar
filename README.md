@@ -117,4 +117,36 @@ void loop()
 //   led = !led;  
 // }
 ```
+## 基本串口使用的框架
+```
+#include <Arduino.h>
 
+UART pc1(4, 5, NC, NC);   // NC=Not Connected
+UART pc0(16, 17, -1, -1); //-1等价于NC
+
+UART &pc = pc0;//给最常用的、连接PC的串口一个别名
+int led = 25;
+
+void setup()
+{
+  // put your setup code here, to run once:
+  pinMode(led, OUTPUT);
+
+  pc0.begin(115200);
+  pc1.begin(115200);
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  pc0.print("pc0 ");
+  pc0.println(millis());
+
+  pc1.print("pc1 ");
+  pc1.println(millis());
+
+  digitalWrite(led, !digitalRead(led));
+
+  delay(100);
+}
+```
